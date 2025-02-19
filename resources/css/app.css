@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Estilos globales */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bg-blue-600 {
+  background-color: #2563eb;
+}
+
+.text-blue-300 {
+  color: #93c5fd;
+}
+
+.text-blue-700 {
+  color: #1e40af;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.transition {
+  transition: all 0.3s ease-in-out;
+}
+.card:hover {
+  transform: perspective(800px) rotateY(0deg);
+}
+section:nth-child(odd) {
+  background: #1e40af;/* Azul oscuro */
+  
+}
+
+section:nth-child(even) {
+    height: 100vh; /* Altura total de la ventana */
+  background: linear-gradient(180 deg,rgb(0, 0, 6) #00060e81, #000000);
+
+}
