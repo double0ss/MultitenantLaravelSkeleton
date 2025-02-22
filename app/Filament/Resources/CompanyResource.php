@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\DB;
 class CompanyResource extends Resource
 {
     protected static ?string $model = Company::class;
+    protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
+    protected static ?string $navigationGroup = 'Platform Management';
+    protected static ?string $navigationGroupIcon = 'heroicon-o-cog-6-tooth';
 
     public static function form(Form $form): Form
     {
