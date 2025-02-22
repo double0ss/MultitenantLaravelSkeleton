@@ -11,17 +11,11 @@ class Client extends Model
 
     protected $fillable = [
         'name',
-        'domain',
-        'database',
-        'active'
+        'email',
+        'is_active',
     ];
 
     protected $casts = [
-        'active' => 'boolean'
+        'is_active' => 'boolean',
     ];
-
-    public function users()
-    {
-        return $this->hasMany(User::class);
-    }
 }

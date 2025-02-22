@@ -12,7 +12,11 @@ class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.login');
+        if (Auth::check()) {
+            return redirect('/dashboard');
+        }
+        
+        return redirect('/dashboard/login');
     }
 
     public function login(Request $request)
@@ -28,7 +32,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             if ($user->is_admin) {
-                return redirect()->intended('/admin');
+                return redirect()->intended('/dashboard');
             }
 
             $company = Company::find($user->company_id);

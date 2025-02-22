@@ -28,7 +28,8 @@ class AdminUserSeeder extends Seeder
             'Companies' => 'Manage platform companies',
             'Users' => 'Manage platform users',
             'Roles' => 'Manage roles and permissions',
-            'Modules' => 'Manage system modules'
+            'Modules' => 'Manage system modules',
+            'Plans' => 'Manage subscription plans',
         ];
 
         foreach ($modules as $name => $description) {

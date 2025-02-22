@@ -31,6 +31,7 @@ class User extends Authenticatable implements FilamentUser
         'password' => 'hashed',
         'is_admin' => 'boolean',
         'is_active' => 'boolean',
+        'is_company_admin' => 'boolean',
     ];
 
     public function company()

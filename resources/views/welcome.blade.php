@@ -470,7 +470,9 @@
             <div class="flex h-full flex-col justify-center gap-4 p-6 relative z-10">
                 <div class="left-0 right-0 inline-block border-gray-200 px-2 py-2.5 sm:px-4">
                     <form method="POST" action="{{ route('login') }}" class="flex flex-col gap-4 pb-4">
-                        @csrf
+                    @csrf
+                           
+                            <input type="hidden" name="redirect" value="/dashboard">
                         <h1 class="mb-4 text-2xl font-bold dark:text-white">Bienvenido a la plataforma de IOT</h1>
                         <div>
                             <div class="mb-2">
