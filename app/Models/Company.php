@@ -25,14 +25,14 @@ class Company extends Model
     protected static function booted()
     {
         static::creating(function ($company) {
-            $company->database = $company->id;
+            $company->database = str_replace('-', '_', $company->id);
         });
-
+    
         static::created(function ($company) {
             try {
-                // Create the new database
-                DB::statement("CREATE DATABASE {$company->database}");
-
+                // Create the new database with quotes to handle special characters
+                DB::statement('CREATE DATABASE "' . $company->database . '"');
+    
                 // Run migrations on the new database
                 Artisan::call('tenants:migrate', [
                     '--database' => $company->database
@@ -42,11 +42,11 @@ class Company extends Model
                 throw $e;
             }
         });
-
+    
         static::deleting(function ($company) {
             try {
-                // Drop the database when company is deleted
-                DB::statement("DROP DATABASE IF EXISTS {$company->database}");
+                // Drop database with quotes to handle special characters
+                DB::statement('DROP DATABASE IF EXISTS "' . $company->database . '"');
             } catch (\Exception $e) {
                 report($e);
             }
